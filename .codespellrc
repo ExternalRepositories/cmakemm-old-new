@@ -1,0 +1,8 @@
+[codespell]
+dictionary = -
+builtin = clear,rare,informal,usage,code,names
+ignore-words = .codespellignore
+uri-ignore-words-list = ''
+check-filenames =
+check-hidden =
+skip = .gitattributes,.gitignore

@@ -67,3 +67,9 @@ repos:
   rev: v2.1.0
   hooks:
   - id: codespell
+
+- repo: https://github.com/editorconfig-checker/editorconfig-checker.python
+  rev: 2.4.0
+  hooks:
+  - id: editorconfig-checker
+    name: check .editorconfig rules

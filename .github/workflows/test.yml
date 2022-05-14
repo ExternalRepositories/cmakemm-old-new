@@ -29,7 +29,10 @@ jobs:
         github-api-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: ⚙️ Configure
-      run: cmake -S ${{ github.workspace }} -B build -D CMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=ON
+      working-directory: ${{ github.workspace }}/build
+      run: |
+        cmake -E make_directory ${{ github.workspace }}/build
+        cmake -D CMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=ON ${{ github.workspace }}
 
     - name: 🛠️ Build
       run: cmake --build build --config Debug --parallel 2
@@ -57,7 +60,10 @@ jobs:
         github-api-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: ⚙️ Configure
-      run: cmake -S ${{ github.workspace }} -B build -D CMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=ON
+      working-directory: ${{ github.workspace }}/build
+      run: |
+        cmake -E make_directory ${{ github.workspace }}/build
+        cmake -D CMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=ON ${{ github.workspace }}
 
     - name: 🛠️ Build
       run: cmake --build build --config Debug --parallel 2
@@ -85,7 +91,10 @@ jobs:
         github-api-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: ⚙️ Configure
-      run: cmake -S ${{ github.workspace }} -B build -D CMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=ON
+      working-directory: ${{ github.workspace }}/build
+      run: |
+        cmake -E make_directory ${{ github.workspace }}/build
+        cmake -D CMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=ON ${{ github.workspace }}
 
     - name: 🛠️ Build
       run: cmake --build build --config Debug --parallel 2

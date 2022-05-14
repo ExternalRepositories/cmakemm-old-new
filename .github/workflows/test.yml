@@ -47,7 +47,7 @@ jobs:
       run: ctest -C Debug --parallel 2 -VV --output-on-failure
 
     - name: 🗂️ Install
-      if: ${{ matrix.cmake>= 15 }
+      if: ${{ matrix.cmake>= 15 }}
       run: cmake --install ${{ github.workspace }}\build --config Debug
 
   test-macos:
@@ -82,7 +82,7 @@ jobs:
       run: ctest -C Debug --parallel 2 -VV --output-on-failure
 
     - name: 🗂️ Install
-      if: ${{ matrix.cmake>= 15 }
+      if: ${{ matrix.cmake>= 15 }}
       run: cmake --install ${{ github.workspace }}/build --config Debug
 
   test-linux:
@@ -117,5 +117,5 @@ jobs:
       run: ctest -C Debug --parallel 2 -VV --output-on-failure
 
     - name: 🗂️ Install
-      if: ${{ matrix.cmake>= 15 }
+      if: ${{ matrix.cmake>= 15 }}
       run: cmake --install ${{ github.workspace }}/build --config Debug

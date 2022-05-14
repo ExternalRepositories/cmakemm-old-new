@@ -22,6 +22,9 @@ jobs:
     - name: ✅️ Checkout
       uses: actions/checkout@v3.0.2
 
+    - name: 🧰 Setup Visual Studio
+      uses: ilammy/msvc-dev-cmd@v1.10.0
+
     - name: 📥 Install CMake ${{ matrix.cmake }}
       uses: jwlawson/actions-setup-cmake@v1.12
       with:
@@ -44,7 +47,7 @@ jobs:
       run: ctest -C Debug --parallel 2 -VV --output-on-failure
 
     - name: 🗂️ Install
-      if: ${{ matrix.cmake >= 3.15 }}
+      if: ${{ matrix.cmake >= (3.15*100) }}
       run: cmake --install ${{ github.workspace }}\build --config Debug
 
   test-macos:
@@ -79,7 +82,7 @@ jobs:
       run: ctest -C Debug --parallel 2 -VV --output-on-failure
 
     - name: 🗂️ Install
-      if: ${{ matrix.cmake >= 3.15 }}
+      if: ${{ matrix.cmake >= (3.15*100) }}
       run: cmake --install ${{ github.workspace }}/build --config Debug
 
   test-linux:
@@ -114,5 +117,5 @@ jobs:
       run: ctest -C Debug --parallel 2 -VV --output-on-failure
 
     - name: 🗂️ Install
-      if: ${{ matrix.cmake >= 3.15 }}
+      if: ${{ matrix.cmake >= (3.15*100) }}
       run: cmake --install ${{ github.workspace }}/build --config Debug

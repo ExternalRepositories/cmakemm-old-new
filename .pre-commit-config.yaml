@@ -58,7 +58,7 @@ repos:
     args: [--mapping, '2', --sequence, '2', --offset, '0', --width, '250']
 
 - repo: https://github.com/commitizen-tools/commitizen
-  rev: v2.25.0
+  rev: v2.27.0
   hooks:
   - id: commitizen
     stages: [commit-msg]
@@ -89,6 +89,6 @@ repos:
     args: [--config=.cmake-linter.yml]
 
 - repo: https://github.com/sirosen/check-jsonschema
-  rev: 0.14.3
+  rev: 0.15.0
   hooks:
   - id: check-github-workflows

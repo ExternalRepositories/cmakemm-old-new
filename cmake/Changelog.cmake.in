@@ -1,0 +1,7 @@
+set(CMMM_LATEST_VERSION @PROJECT_VERSION@ "Latest version of CMakeMM")
+set(GET_CMMM_LATEST_VERSION @GET_CMMM_VERSION@ "Latest version of GetCMakeMM")
+
+# Changelog list
+function(changelog)
+
+endfunction()

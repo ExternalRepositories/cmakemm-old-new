@@ -43,7 +43,7 @@ repos:
     name: check for conflict markers and core.whitespace errors
 
 - repo: https://github.com/Lucas-C/pre-commit-hooks
-  rev: v1.1.14
+  rev: v1.2.0
   hooks:
   - id: remove-crlf
   - id: remove-tabs
@@ -58,7 +58,7 @@ repos:
     args: [--mapping, '2', --sequence, '2', --offset, '0', --width, '250']
 
 - repo: https://github.com/commitizen-tools/commitizen
-  rev: v2.27.0
+  rev: v2.27.1
   hooks:
   - id: commitizen
     stages: [commit-msg]

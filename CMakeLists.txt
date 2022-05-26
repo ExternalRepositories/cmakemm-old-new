@@ -44,26 +44,26 @@ endif()
 set(PROJECT_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}.${PROJECT_VERSION_TWEAK}")
 set(${PROJECT_NAME}_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}.${PROJECT_VERSION_TWEAK}")
 
-include(GetCMakeMM)
-
 configure_file("${CMAKE_CURRENT_SOURCE_DIR}/cmake/Changelog.cmake.in" "${CMAKE_CURRENT_BINARY_DIR}/cmake/Changelog.cmake" @ONLY)
 
-message(STATUS "project version : ${PROJECT_VERSION}")
-message(STATUS "cmakemm version : ${cmakemm_VERSION}")
-message(STATUS "project version major : ${PROJECT_VERSION_MAJOR}")
-message(STATUS "project version minor : ${PROJECT_VERSION_MINOR}")
-message(STATUS "project version patch : ${PROJECT_VERSION_PATCH}")
-message(STATUS "project version tweak : ${PROJECT_VERSION_TWEAK}")
-message(STATUS "cmakemm version major : ${cmakemm_VERSION_MAJOR}")
-message(STATUS "cmakemm version minor : ${cmakemm_VERSION_MINOR}")
-message(STATUS "cmakemm version patch : ${cmakemm_VERSION_PATCH}")
-message(STATUS "cmakemm version tweak : ${cmakemm_VERSION_TWEAK}")
-message(STATUS "project URL : ${PROJECT_HOMEPAGE_URL}")
-message(STATUS "cmakemm URL : ${cmakemm_HOMEPAGE_URL}")
-message(STATUS "project description : ${PROJECT_DESCRIPTION}")
-message(STATUS "cmakemm description : ${cmakemm_DESCRIPTION}")
+include(Changelog)
 
 message(STATUS "CMMM_LATEST_VERSION version : ${CMMM_LATEST_VERSION}")
 message(STATUS "GET_CMMM_LATEST_VERSION : ${GET_CMMM_LATEST_VERSION}")
+
+# cmake-lint: disable=C0103
+set(GET_CMMM_VERSION "1.0.0" CACHE INTERNAL "Loaded version of GetCMakeMM")
+# pass
+
+function(print COLOR TEXT)
+	if(CMAKE_VERSION VERSION_LESS 3.1 OR DEFINED ENV{CLION_IDE} OR DEFINED ENV{DevEnvDir} OR DEFINED ENV{workspaceRoot})
+		execute_process(COMMAND ${CMAKE_COMMAND} -E echo ${TEXT})
+		message(STATUS "LLL")
+	else()
+		execute_process(COMMAND ${CMAKE_COMMAND} -E env CLICOLOR_FORCE=1 ${CMAKE_COMMAND} -E cmake_echo_color ${COLOR} ${TEXT})
+	endif()
+endfunction()
+
+print(--red ll)
 
 cmake_policy(POP)

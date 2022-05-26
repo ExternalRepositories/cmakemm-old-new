@@ -1,5 +1,5 @@
-set(CMMM_LATEST_VERSION @PROJECT_VERSION@ "Latest version of CMakeMM")
-set(GET_CMMM_LATEST_VERSION @GET_CMMM_VERSION@ "Latest version of GetCMakeMM")
+set(CMMM_LATEST_VERSION @PROJECT_VERSION@)
+set(GET_CMMM_LATEST_VERSION @GET_CMMM_VERSION@)
 
 # Changelog list
 function(changelog)

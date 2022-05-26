@@ -55,14 +55,20 @@ message(STATUS "GET_CMMM_LATEST_VERSION : ${GET_CMMM_LATEST_VERSION}")
 set(GET_CMMM_VERSION "1.0.0" CACHE INTERNAL "Loaded version of GetCMakeMM")
 # pass
 
-function(print COLOR TEXT)
-	if(CMAKE_VERSION VERSION_LESS 3.1 OR DEFINED ENV{CLION_IDE} OR DEFINED ENV{DevEnvDir} OR DEFINED ENV{workspaceRoot})
-		execute_process(COMMAND ${CMAKE_COMMAND} -E echo ${TEXT})
-	else()
-		execute_process(COMMAND ${CMAKE_COMMAND} -E env CLICOLOR_FORCE=1 ${CMAKE_COMMAND} -E cmake_echo_color ${COLOR} ${TEXT})
-	endif()
-endfunction()
+#function(print COLOR TEXT)
+#  if(CMAKE_VERSION VERSION_LESS 3.1 OR DEFINED ENV{CLION_IDE} OR DEFINED ENV{DevEnvDir} OR DEFINED ENV{workspaceRoot})
+#    execute_process(COMMAND ${CMAKE_COMMAND} -E echo ${TEXT})
+#  else()
+#    execute_process(COMMAND ${CMAKE_COMMAND} -E env CLICOLOR_FORCE=1 ${CMAKE_COMMAND} -E cmake_echo_color ${COLOR} ${TEXT})
+#  endif()
+#endfunction()
 
-print(--red ll)
+#print(--red ll)
+
+option(BUILD_TESTS "Build the tests" OFF)
+
+if(BUILD_TESTS)
+  include(CTest)
+endif()
 
 cmake_policy(POP)
